@@ -47,3 +47,7 @@ oc create -f grafana-dashboards-cm.yaml
 ##### Step 10# Create route resource
 
 ```oc expose service/grafana```
+
+##### Step 11# Get route URL
+
+```oc get route |awk 'NR==2 {print $2}'```
