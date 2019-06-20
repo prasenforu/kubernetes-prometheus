@@ -3,9 +3,13 @@
 
 
 
-##### Step 1# Create a new project.
+##### Step 1# Create a new project and set node selector for this project
 
-```oc new-project grafana```
+```
+oc new-project grafana
+
+oc patch namespace security -p '{"metadata":{"annotations":{"openshift.io/node-selector":"sregion=infra"}}}'
+```
 
 ##### Step 2# To add k8s-prometheus as a datasource in this standalone Grafana, you need to run gfollowing command to get credentials.
 
