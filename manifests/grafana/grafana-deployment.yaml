@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: grafana
+  name: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - image: grafana/grafana
+        name: grafana
+        ports:
+        - containerPort: 3000
+          name: http
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            value: "admin2675"
+        volumeMounts:
+        - mountPath: /var/lib/grafana
+          subPath: grafana
+          name: grafana-storage
+          readOnly: false
+        - mountPath: /etc/grafana/provisioning/datasources
+          name: grafana-datasources
+          readOnly: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000300000
+      serviceAccountName: grafana
+      volumes:
+      - persistentVolumeClaim:
+          claimName: grafana-pvc
+        name: grafana-storage
+      - name: grafana-datasources
+        configMap:
+          name: grafana-datasources
