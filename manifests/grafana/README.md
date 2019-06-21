@@ -42,7 +42,13 @@ oc create -f grafana-dashboards-cm.yaml
 
 ##### Step 8# Create Deployment
 
+If you want to deploy without dashboard then use following ...
+
 ```oc create -f grafana-deployment.yaml```
+
+Else use following but no need to run step 5 ...
+
+```oc create -f grafana-deployment-with-dashboard.yaml```
 
 ##### Step 9# Create Service resource
 
