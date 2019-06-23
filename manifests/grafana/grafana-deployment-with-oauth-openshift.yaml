@@ -141,10 +141,7 @@ objects:
             requests:
               cpu: 100m
               memory: 100Mi
-          env:
-          - name: GF_SECURITY_ADMIN_PASSWORD
-            value: "admin2675"
-
+              
           volumeMounts:
           - mountPath: /var/lib/grafana
             name: grafana-lib-volume
