@@ -76,3 +76,23 @@
             name: grafana-tls
           - mountPath: /etc/proxy/secrets
             name: secrets
+
+        volumes:
+        - configMap:
+            name: grafana-config
+          name: grafana-etc-volume
+        - name: grafana-datasources
+          configMap:
+            name: grafana-datasources
+        - name: grafana-lib-volume
+          persistentVolumeClaim:
+            claimName: grafana-lib-pvc
+        - name: grafana-log-volume
+          persistentVolumeClaim:
+            claimName: grafana-log-pvc
+        - name: secrets
+          secret:
+            secretName: grafana-proxy
+        - name: grafana-tls
+          secret:
+            secretName: grafana-tls
