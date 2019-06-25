@@ -50,10 +50,6 @@ Else use following but no need to run step 5 ...
 
 ```oc create -f grafana-deployment-with-dashboard.yaml```
 
-If you want to use openshift oauth then use follwing ... ONLY run 1 to 4 step then this step.
-
-```oc new-app -f grafana-deployment-with-oauth-openshift.yaml```
-
 ##### Step 9# Create Service resource
 
 ```oc create -f grafana-svc.yaml```
