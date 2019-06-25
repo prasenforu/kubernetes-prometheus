@@ -8,7 +8,7 @@
 ```
 oc new-project grafana
 
-oc patch namespace security -p '{"metadata":{"annotations":{"openshift.io/node-selector":"sregion=infra"}}}'
+oc patch namespace grafana -p '{"metadata":{"annotations":{"openshift.io/node-selector":"region=infra"}}}'
 ```
 
 ##### Step 2# To add k8s-prometheus as a datasource in this standalone Grafana, you need to run gfollowing command to get credentials.
