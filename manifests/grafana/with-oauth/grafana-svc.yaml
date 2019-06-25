@@ -6,7 +6,6 @@
       prometheus.io/scrape: "true"
       prometheus.io/scheme: https
       service.alpha.openshift.io/serving-cert-secret-name: grafana-tls
-    namespace: "${NAMESPACE}"
     labels:
       metrics-infra: grafana
       name: grafana
