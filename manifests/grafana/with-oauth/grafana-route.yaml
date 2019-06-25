@@ -1,0 +1,10 @@
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    name: grafana
+  spec:
+    host: "grafana-grafana.cloudapps.tcs-ally.tk"
+    to:
+      name: grafana
+    tls:
+      termination: Reencrypt
