@@ -1,0 +1,24 @@
+- apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: grafana-config
+  data:
+    defaults.ini: |-
+      ##################### Grafana Configuration Defaults #####################
+      [auth]
+      disable_login_form = true
+      disable_signout_menu = true
+      [auth.basic]
+      enabled = false
+      [auth.proxy]
+      auto_sign_up = true
+      enabled = true
+      header_name = X-Forwarded-User
+      [paths]
+      data = /var/lib/grafana
+      logs = /var/log/grafana
+      plugins = /var/lib/grafana/plugins
+      provisioning = /etc/grafana/provisioning
+      [server]
+      http_addr = 127.0.0.1
+      http_port = 3000
