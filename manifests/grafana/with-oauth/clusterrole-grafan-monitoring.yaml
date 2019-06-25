@@ -1,0 +1,14 @@
+apiVersion: authorization.openshift.io/v1
+kind: ClusterRole
+metadata:
+  name: grafana-monitoring-view
+rules:
+- apiGroups:
+  - ""
+  attributeRestrictions: null
+  resources:
+  - namespaces
+  - services
+  verbs:
+  - get
+  - list
