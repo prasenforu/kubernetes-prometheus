@@ -1,4 +1,4 @@
-## Setup standalone Grafana in Openshift 3.11
+## Setup standalone Grafana in Openshift 3.11 with oauth
 
 
 
@@ -37,11 +37,11 @@ oc get secret grafana-datasources -n openshift-monitoring -o yaml | grep prometh
 
 ```oc create -f clusterrole-grafan-monitoring.yaml```
 
-##### Step 8# Add user in clusterrole to view dashboard
+##### Step 8# Add user in clusterrole to view dashboard, before run this command make sure you users should added in cluster (htpasswd)
 
 ```oc adm policy add-cluster-role-to-user grafana-monitoring-view <U S E R S>```
 
-#### Backup & Restore of grafana DB
+### Backup & Restore of grafana DB
 
 Bydefault grafana database (grafana.db) stores in /var/lib/grafana folder. You can take a copy of grafana database (grafana.db) in local system. 
 
